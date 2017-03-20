@@ -13,13 +13,22 @@ public class Test {
 		int z = getZ(s);
 		float epsilon = getEpsilon(s);
 		int pixelConnectivity = getPixelConnectivityMethod(s);
+		
+		// mock image size
+		int imageSize = 10;
 
 		// create Mock image with random floats between [0,1] and a hole inside it
 		Image img = new Image();
-		img.createMockImage(500, 500);
+		img.createMockImage(imageSize, imageSize);
 		img.writeImage("input.png");
 		
+		System.out.println("Input image:");
+		System.out.println(img.getDumpedImage());
+		System.out.println();
+		
 		// init weight function
+		// *you may create custom class for different weight that extends FillAlgorithmWeight class
+		//	and pass it as parameter for FillAlgorithm Constructor
 		FillAlgorithm weight = new FillAlgorithm(z, epsilon);
 		
 		// init the rest classes
@@ -33,6 +42,11 @@ public class Test {
 		// fill the hole according to the weight function
 		Image filledImg = hf.fill(img, boundaries, hole, weight);
 		
+		System.out.println("Output image:");
+		System.out.println(filledImg.getDumpedImage());
+		System.out.println();
+		
+		// write the output image
 		filledImg.writeImage("output.png");
 
 	}
