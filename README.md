@@ -6,7 +6,7 @@ The excercise implemented with Java.
 
 To run it, just run **Test.java** and follow the output.
 
-If the hole is a square with size of n*n, then the hole size is n*n.
+If the hole is a square with size of n\*n, then the hole size is n\*n.
 So the algorithm complexity is O(n^2) at worst case.
 
 The algorithm can be improved by using DFS/BFS.
