@@ -5,6 +5,8 @@ Given an image which each pixel is between [0,1], and a hole inside the image de
 The excercise implemented with Java.
 
 To run it, just run **Test.java** and follow the output.
+There will be two output files: one is input.png and one is output.png .
+input.png represents the mock image created randomly which has hole, and output.png is the output of hole filling algorithm.
 
 If the hole is a square with size of n\*n, then the hole size is n\*n.
 So the algorithm complexity is **O(n^2)** at worst case.
