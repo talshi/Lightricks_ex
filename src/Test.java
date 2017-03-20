@@ -12,6 +12,7 @@ public class Test {
 		System.out.println("Please insert the following parameters:");
 		int z = getZ(s);
 		float epsilon = getEpsilon(s);
+		int pixelConnectivity = getPixelConnectivityMethod(s);
 
 		// create Mock image with random floats between [0,1] and a hole inside it
 		Image img = new Image();
@@ -24,7 +25,6 @@ public class Test {
 		Weight weight = new Weight(z, epsilon);
 		
 		// init the rest classes
-		int pixelConnectivity = 4; // may be 4 or 8
 		ImageBoundary ib = new ImageBoundary(pixelConnectivity);
 		HoleFilling hf = new HoleFilling();
 		
@@ -79,5 +79,25 @@ public class Test {
 		}
 
 		return eps;
+	}
+	
+	private static int getPixelConnectivityMethod(Scanner s) {
+		System.out.println("Insert pixel connectivity method (4 or 8): ");
+		int pixelConnectivity = 4;
+
+		try {
+			pixelConnectivity = s.nextInt();
+			if(pixelConnectivity == 4 || pixelConnectivity == 8) {
+				return pixelConnectivity;
+			} else {
+				System.out.println("Invalid parameter. Parameter set to default (4)");
+				pixelConnectivity = 4;
+			}
+		} catch(InputMismatchException e) {
+			System.out.println("Invalid parameter. Parameter set to default (4)");
+			pixelConnectivity = 1;
+		}
+
+		return pixelConnectivity;
 	}
 }
