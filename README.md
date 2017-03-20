@@ -11,4 +11,4 @@ So the algorithm complexity is **O(n^2)** at worst case.
 
 The algorithm can be improved by using DFS/BFS.
 
-**Notice that we can use Flood Fill algorithm (built in in OpenCV), but as mentioned the propuse of this excersice is not to show algorithms skills.**
+**Notice that we can implement recursive Flood Fill algorithm (built-in in OpenCV), but as mentioned the propuse of this excersice is not to show algorithms skills.**
