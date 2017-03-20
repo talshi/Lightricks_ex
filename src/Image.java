@@ -2,6 +2,7 @@ import java.util.Random;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+import org.opencv.imgcodecs.Imgcodecs;
 
 public class Image {
 	
@@ -50,6 +51,16 @@ public class Image {
 	
 	public Mat getImage() {
 		return this.img;
+	}
+	
+	public void writeImage(String filename) {
+		Mat mat = new Mat(this.img.width(), this.img.height(), CvType.CV_32FC1);
+		for(int i = 0; i < this.img.width(); i++) {
+			for(int j = 0; j < this.img.height(); j++) {
+				mat.put(i, j, this.img.get(i, j)[0] * 255);
+			}
+		}
+		Imgcodecs.imwrite(filename, mat);
 	}
 	
 }

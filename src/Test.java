@@ -16,13 +16,11 @@ public class Test {
 
 		// create Mock image with random floats between [0,1] and a hole inside it
 		Image img = new Image();
-		img.createMockImage(10, 10);
-		
-		System.out.println(img.getDumpedImage());
-		System.out.println();
+		img.createMockImage(500, 500);
+		img.writeImage("input.png");
 		
 		// init weight function
-		Weight weight = new Weight(z, epsilon);
+		FillAlgorithm weight = new FillAlgorithm(z, epsilon);
 		
 		// init the rest classes
 		ImageBoundary ib = new ImageBoundary(pixelConnectivity);
@@ -35,8 +33,7 @@ public class Test {
 		// fill the hole according to the weight function
 		Image filledImg = hf.fill(img, boundaries, hole, weight);
 		
-		System.out.println(filledImg.getDumpedImage());
-		System.out.println();
+		filledImg.writeImage("output.png");
 
 	}
 
